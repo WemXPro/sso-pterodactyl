@@ -21,9 +21,9 @@ composer require wemx/sso-pterodactyl
 ## Configuration
 1. Publish the configuration file by running the following command:
 ```bash
-php artisan vendor:publish --tag=sso
+php artisan vendor:publish --tag=sso-wemx
 ```
-This command will publish the config/sso.php file, where you can set the secret key for SSO authorization.
+This command will publish the config/sso-wemx.php file, where you can set the secret key for SSO authorization.
 
 2. Generate new SSO key
 ```shell
