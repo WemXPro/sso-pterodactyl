@@ -34,27 +34,29 @@ Make sure to paste the SSO key on your WemX application
 
 ## Usage
 
-1. To authorize users on the Laravel panel from another website, first perform SSO authorization on your website.
-2. Redirect the user to the /sso-login route with a GET parameter auth_marker containing the encrypted user data in JSON format. For example:
+1. Generate a access token for using a GET request from your application
+2. Redirect the user to the SSO redirect with their token
 
 ```php
-use Illuminate\Encryption\Encrypter;
-
-public function redirectToAppB()
+public function loginPanel()
 {
-    $user = Auth::user();
-    $authMarkerData = [
-        'email' => $user->email,
-        'secret_key' => config('sso.secret_key')
-    ];
+    $url = "https://panel.example.com/sso-wemx/";
+    $secret = "xxxxxxx";
 
-    $key = config('sso.secret_key');
-    $cipher = config('app.cipher');
-    $encrypter = new Encrypter($key, $cipher);
-    $token = json_encode($authMarkerData);
-    $encryptedToken = $encrypter->encrypt($token);
+    $response = Http::get($url, [
+        'sso_secret' => $secret,
+        'user_id' => 1
+    ]);
 
-    header("Location: https://app-b.example.com/sso-login?token=" . urlencode($encryptedToken));
+    if (!$response->successful()) {
+        $message = $response['success'] && !$response['success']
+            ? $response['message']
+            : 'Something went wrong, please contact an administrator.';
+
+        return redirect()->back()->withError($message);
+    }
+
+    return redirect()->intended($response['redirect']);
 }
 ```
 After being redirected to the /sso-login route, the user will be automatically authorized on the Laravel panel if their email address matches a record in the database.
