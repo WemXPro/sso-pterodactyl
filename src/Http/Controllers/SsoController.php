@@ -39,16 +39,16 @@ class SsoController
      */
     public function webhook(Request $request)
     {
-        if($request->input('sso_secret') !== config('sso.secret_key')) {
+        if($request->input('sso_secret') !== config('sso-wemx.secret')) {
             return response(['success' => false, 'message' => 'Please provide valid credentials'], 403);
         }
 
         $user = User::findOrFail($request->input('user_id'));
-        if($user->root_admin) {
+        if($user['root_admin']) {
             return response(['success' => false, 'message' => 'You cannot automatically login to admin accounts.'], 501);
         }
 
-        if($user->2fa) {
+        if($user['2fa']) {
             return response(['success' => false, 'message' => 'Logging into accounts with 2 Factor Authentication enabled is not supported.'], 501);
         }
 
@@ -59,12 +59,12 @@ class SsoController
      * Generate a random access token and store the user_id inside
      * Tokens are only valid for 60 seconds
      *
-     * @return $token
+     * @return mixed
      */
-    protected function generateToken($user_id): bool
+    protected function generateToken($user_id)
     {
-        $token = Str::random(config('sso.token_length', 48));
-        Cache::add($token, $user_id, config('sso.token_lifetime', 60));
+        $token = Str::random(config('sso-wemx.token.length', 48));
+        Cache::add($token, $user_id, config('sso-wemx.token.lifetime', 60));
         return $token;
     }
 
