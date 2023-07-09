@@ -29,7 +29,8 @@ This command will publish the config/sso.php file, where you can set the secret 
 ```shell
 php artisan wemx:generate
 ```
-Make sure the secret key is 32 characters long.
+
+Make sure to paste the SSO key on your WemX application
 
 ## Usage
 
