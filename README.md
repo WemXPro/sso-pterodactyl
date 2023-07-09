@@ -1,5 +1,5 @@
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/gigabait/laravel-sso.svg?style=flat-square)](https://packagist.org/packages/gigabait/laravel-sso)
-[![Total Downloads](https://img.shields.io/packagist/dt/gigabait/laravel-sso.svg?style=flat-square)](https://packagist.org/packages/gigabait/laravel-sso)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/wemx/sso-pterodactyl.svg?style=flat-square)](https://packagist.org/packages/gigabait/laravel-sso)
+[![Total Downloads](https://img.shields.io/packagist/dt/wemx/sso-pterodactyl.svg?style=flat-square)](https://packagist.org/packages/wemx/sso-pterodactyl)
 
 # Laravel SSO
 
@@ -15,7 +15,7 @@ Laravel SSO is a package for implementing Single Sign-On (SSO) authorizations in
 To install the package, use Composer:
 
 ```bash
-composer require gigabait/laravel-sso
+composer require wemx/sso-pterodactyl
 ```
 
 ## Configuration
