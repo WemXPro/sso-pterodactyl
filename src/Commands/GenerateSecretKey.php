@@ -1,6 +1,6 @@
 <?php
 
-namespace WemX\Commands;
+namespace WemX\Sso\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\Kernel;
