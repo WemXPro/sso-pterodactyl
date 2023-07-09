@@ -25,11 +25,12 @@ php artisan vendor:publish --tag=sso
 ```
 This command will publish the config/sso.php file, where you can set the secret key for SSO authorization.
 
-2. Set the secret key in your .env file:
-```env
-SSO_SECRET_KEY=your_secret_key
+2. Generate new SSO key
+```shell
+php artisan wemx:generate
 ```
-Make sure the secret key is 32 characters long.
+
+Make sure to paste the SSO key on your WemX application
 
 ## Usage
 
