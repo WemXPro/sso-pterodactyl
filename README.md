@@ -40,11 +40,8 @@ Make sure to paste the SSO key on your WemX application
 ```php
 public function loginPanel()
 {
-    $url = "https://panel.example.com/sso-wemx/";
-    $secret = "xxxxxxx";
-
-    $response = Http::get($url, [
-        'sso_secret' => $secret,
+    $response = Http::get("https://panel.example.com/sso-wemx/", [
+        'sso_secret' => "xxxxxxx",
         'user_id' => 1
     ]);
 
@@ -60,14 +57,6 @@ public function loginPanel()
 }
 ```
 After being redirected to the /sso-login route, the user will be automatically authorized on the Laravel panel if their email address matches a record in the database.
-
-## Note
-
-Make sure both applications use the same SSO_SECRET_KEY in their respective .env files. This is required for the encryption and decryption process to work correctly. The key must be 32 characters long.
-
-## Error Handling
-
-If an error occurs during the SSO process, the user will be redirected to the login page of App B. If the secret key length is not 32 characters, an error message will be displayed.
 
 ## Support
 
