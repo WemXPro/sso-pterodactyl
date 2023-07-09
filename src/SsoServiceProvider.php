@@ -3,7 +3,7 @@
 namespace WemX\Sso;
 
 use Illuminate\Support\ServiceProvider;
-use Wemx\Commands\GenerateSecretKey;
+use Wemx\Sso\Commands\GenerateSecretKey;
 
 class SsoServiceProvider extends ServiceProvider
 {
