@@ -52,7 +52,7 @@ class SsoController
             return response(['success' => false, 'message' => 'Logging into accounts with 2 Factor Authentication enabled is not supported.'], 501);
         }
 
-        return response(['success' => true, 'token' => $this->generateToken($request->input('user_id'))], 200);
+        return response(['success' => true, 'redirect' => route('sso-wemx.login', $this->generateToken($request->input('user_id')))], 200);
     }
 
     /**
