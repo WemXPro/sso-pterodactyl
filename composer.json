@@ -1,0 +1,30 @@
+{
+    "name": "wemx/sso-pterodactyl",
+    "description": "Allows clients from WemX login to their Pterodactyl account with a single redirect",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mubeen Ullah",
+            "email": "mubeen@wemx.net"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WemX\\Sso\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WemX\\Sso\\SsoServiceProvider"
+            ]
+        }
+    }
+}
