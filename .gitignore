@@ -1,2 +1,5 @@
 
 .vscode/sftp.json
+.idea/modules.xml
+.idea/sso-pterodactyl.iml
+.idea/workspace.xml
