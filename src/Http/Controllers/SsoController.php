@@ -39,6 +39,10 @@ class SsoController
      */
     public function webhook(Request $request)
     {
+        if(!config('sso-wemx.secret')) {
+            return response(['success' => false, 'message' => 'Please configure a SSO Secret'], 403);
+        }
+
         if($request->input('sso_secret') !== config('sso-wemx.secret')) {
             return response(['success' => false, 'message' => 'Please provide valid credentials'], 403);
         }
