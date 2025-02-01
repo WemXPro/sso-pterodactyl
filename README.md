@@ -8,7 +8,7 @@ Laravel SSO is a package for implementing Single Sign-On (SSO) authorizations in
 ## Requirements
 
 - PHP 8.0 or higher
-- Laravel 9 or 10 or higher
+- Laravel 10 or higher
 
 ## Installation
 
